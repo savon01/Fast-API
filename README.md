@@ -1,30 +1,37 @@
-# Чтобы запустить проект локально, выполните следующие шаги:
+## Требования
+
+- Docker
+- Docker Compose
+
+## Установка
 
 ## Откройте выбранную вами среду разработки и склонируйте репозиторий проекта:
 
 ### git clone https://github.com/savon01/Fast-API
 
-## В терминале из директории проекта создайте виртуальное окружение с помощью следующей команды:
-## python3 -m venv .venv
-### Активируйте виртуальное окружение с помощью следующей команды:
-## Для macOS/Linux:
-### source .venv/bin/activate
+## В корневой директории создайте файл .env и создайте следущие перменные:
+### YOUR_DB = "your_postgres_db_name"
+### YOUR_USER = "your_postgres_username"
+### YOUR_PASSWORD = "your_postgres_password"
+### YOUR_HOST = "your_postgres_host"
+### YOUR_PORT = "your_postgres_port"
 
-## Для Windows:
-### .venv\Scripts\activate
 
-## Установите зависимости проекта с помощью следующей команды:
-### pip install -r requirements.txt
-
-## Перейдите в деректорию core, затем в файл db.py и заполните свои данные для подключение к бд в следующие переменные:
 ### POSTGRES_DB = "your_postgres_db_name"
 ### POSTGRES_USER = "your_postgres_username"
 ### POSTGRES_PASSWORD = "your_postgres_password"
-### POSTGRES_HOST = "your_postgres_host"
-### POSTGRES_PORT = "your_postgres_port"
 
-## После этого запустите приложение с помощью следующей команды:
-## uvicorn main:app --reload
 
-# Теперь приложение запущено. Документация Swagger доступна по адресу:
-### http://127.0.0.1:8000/
+## Собрать и запустить контейнеры:
+### docker-compose up -d --build
+
+## Запустить контейнер с приложением:
+### docker-compose up -d web 
+
+## Запустить контенер с тестами:
+### docker-compose run tests 
+
+
+## Задание номер 3 расположено в файле three.py
+
+

@@ -1,17 +1,11 @@
+import os
 from databases import Database
 from sqlalchemy import create_engine
-from sqlalchemy.ext.declarative import declarative_base
-from sqlalchemy.orm import sessionmaker
+from sqlalchemy.orm import sessionmaker, declarative_base
+from config import DATABASE_URL
 
-
-# Подключение к базе данных PostgreSQL
-POSTGRES_DB = "your_postgres_db_name"
-POSTGRES_USER = "your_postgres_username"
-POSTGRES_PASSWORD = "your_postgres_password"
-POSTGRES_HOST = "your_postgres_host"
-POSTGRES_PORT = "your_postgres_port"
-
-SQLALCHEMY_DATABASE_URL = f"postgresql://{POSTGRES_USER}:{POSTGRES_PASSWORD}@{POSTGRES_HOST}:{POSTGRES_PORT}/{POSTGRES_DB}"
+SQLALCHEMY_DATABASE_URL = DATABASE_URL
+# SQLALCHEMY_DATABASE_URL = "postgresql://postgres:savon@localhost/postgres"
 database = Database(SQLALCHEMY_DATABASE_URL)
 engine = create_engine(SQLALCHEMY_DATABASE_URL)
 
