@@ -1,10 +1,11 @@
 from sqlalchemy import func
 from sqlalchemy.orm import Session
+
 from models import Menu, Submenu, Dish
 
 
 def get_menus_with_counts(db: Session):
-    # Выполняем запрос к базе данных
+    # Query the database to get menus with submenus and dishes counts
     menus = db.query(
         Menu.id,
         Menu.title,
@@ -19,15 +20,16 @@ def get_menus_with_counts(db: Session):
         Menu.id
     ).all()
 
-    # Преобразуем результаты запроса в список словарей
-    result = []
-    for menu in menus:
-        result.append({
+    # Convert the result to a list of dictionaries
+    result = [
+        {
             'id': str(menu.id),
             'title': menu.title,
             'description': menu.description,
             'submenus_count': menu.submenus_count,
             'dishes_count': menu.dishes_count
-        })
+        }
+        for menu in menus
+    ]
 
     return result
