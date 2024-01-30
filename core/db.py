@@ -5,7 +5,7 @@ from sqlalchemy.orm import sessionmaker, declarative_base
 from config import DATABASE_URL
 
 SQLALCHEMY_DATABASE_URL = DATABASE_URL
-# SQLALCHEMY_DATABASE_URL = "postgresql://postgres:savon@localhost/postgres"
+
 database = Database(SQLALCHEMY_DATABASE_URL)
 engine = create_engine(SQLALCHEMY_DATABASE_URL)
 
